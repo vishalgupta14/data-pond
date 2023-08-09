@@ -105,8 +105,8 @@ class Sidebar extends React.Component {
                 labelColor="danger"
                 iconElement={<Stack />}
                 conName="flaticon-user"
-                link="/admin"
-                index="admin"
+                link="/platform"
+                index="platform"
                 exact={false}
                 childrenLinks={[
                     {
@@ -114,6 +114,50 @@ class Sidebar extends React.Component {
                     }
                 ]}
             />
+          <LinksGroup
+              onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+              activeItem={this.props.activeItem}
+              header="Configuration"
+              isHeader
+              labelColor="danger"
+              iconElement={<ShoppingCart />}
+              iconName="flaticon-diamond"
+              link="/configuration"
+              index="configuration"
+              exact={false}
+              childrenLinks={[
+                {
+                  header: 'Hadoop', link: '/app/hadoop',
+                }
+              ]}
+          />
+          <LinksGroup
+              onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+              activeItem={this.props.activeItem}
+              header="Admin"
+              isHeader
+              iconElement={<User />}
+              iconName="flaticon-network"
+              link="/app/organization"
+              index="organization"
+              childrenLinks={[
+                {
+                  header: 'Organization', link: '/app/organization',
+                },
+                {
+                  header: 'User', link: '/app/organization/user',
+                },
+                {
+                  header: 'Role', link: '/app/organization/role',
+                },
+                {
+                  header: 'Permission', link: '/app/organization/permission',
+                },
+                {
+                  header: 'Token', link: '/app/organization/token',
+                },
+              ]}
+          />
         </ul>
       </nav >
       </div>

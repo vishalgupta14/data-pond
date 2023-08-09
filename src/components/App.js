@@ -19,8 +19,6 @@ import Verify from '../pages/auth/verify';
 import Register from '../pages/auth/register';
 import Reset from '../pages/auth/reset';
 import Forgot from '../pages/auth/forgot';
-import ProcedurePage from "../pages/application/procedure/ProcedurePage";
-import ApplicationPage from "../pages/application/ApplicationPage";
 
 const CloseButton = ({closeToast}) => <i onClick={closeToast} className="la la-close notifications-close"/>
 
