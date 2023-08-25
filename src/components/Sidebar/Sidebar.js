@@ -136,7 +136,7 @@ class Sidebar extends React.Component {
               activeItem={this.props.activeItem}
               header="Admin"
               isHeader
-              iconElement={<User />}
+              iconElement={<ShoppingCart />}
               iconName="flaticon-network"
               link="/app/organization"
               index="organization"
