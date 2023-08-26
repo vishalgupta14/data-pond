@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Button, Col, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
+import {Button, Col, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row} from 'reactstrap';
 import Widget from '../../../components/Widget';
-import TextareaAutosize from 'react-autosize-textarea';
-import s from '../../forms/elements/Elements.module.scss';
+import userPhoto from "../../../images/common/plus.png";
+import '../../organization/organization.module.scss';
+import {Formik} from "formik";
+import UsersForm from "./UserForm";
 
 class UserPage extends Component {
     state = {
@@ -39,73 +41,22 @@ class UserPage extends Component {
 
         return (
             <div>
-                <div className="page-top-line container">
                     <Row>
-                        <Col xs={1} md={1}>
-                            <h2 className="page-title margin-left140-">
-                                <span className="fw-semi-bold">Users</span>
-                            </h2>
-                        </Col>
-                        <Col xs={1} md={1}>
-                            <Button color="inverse" className="width-100 margin-left850">
-                                <span className="circle">
-                                    <i className="fa fa-map-marker text-gray" />
-                                </span>
-                                Import
-                            </Button>
-                        </Col>
-                        <Col xs={1} md={1}>
-                            <Button
-                                color="inverse"
-                                className="width-100 margin-left850"
-                                onClick={() => this.toggle('large')}
-                            >
-                                <span className="circle">
-                                    <i className="fa fa-map-marker text-gray" />
-                                </span>
-                                Create
-                            </Button>
+                        <Col md={3} xs={3}>
+                            <h2>Users</h2>
                         </Col>
                     </Row>
-                    {/* Modals */}
-                    <Modal size="lg" isOpen={large} toggle={() => this.toggle('large')}>
-                        <ModalHeader toggle={() => this.toggle('large')}>Create User</ModalHeader>
-                        <ModalBody className="bg-white">
-                            <FormGroup row>
-                                <Label for="org-name" md={3} className="text-md-right">
-                                    User Name
-                                </Label>
-                                <Col md={7}>
-                                    <Input type="text" id="org-name" placeholder="" />
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label md={3} className="text-md-right" for="org-description">
-                                    Description
-                                </Label>
-                                <Col md={7}>
-                                    <TextareaAutosize
-                                        rows={3}
-                                        id="org-description"
-                                        placeholder="Try to add few new lines.."
-                                        className={`form-control ${s.autogrow} transition-height`}
-                                    />
-                                </Col>
-                            </FormGroup>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="default" onClick={() => this.toggle('large')}>
-                                Close
-                            </Button>
-                            <Button color="primary">Create</Button>
-                        </ModalFooter>
-                    </Modal>
-                </div>
-                <div>
                     <Row>
+                        <Col md={3} xs={3} >
+                            <Widget className="widget-sm"  to="/app/users/procedure">
+                                <div class="image-effect-container">
+                                    <img src={userPhoto} alt="Description" className="effect-image" onClick={() => this.toggle('large')}/>
+                                </div>
+                            </Widget>
+                        </Col>
                         {Users.map((org, index) => (
                             <Col md={3} xs={3} key={index}>
-                                <Widget className="widget-sm" to="/app/Users/procedure">
+                                <Widget className="widget-sm" to="/app/users/procedure">
                                     <p>
                                         <strong>{org.description}</strong>
                                     </p>
@@ -114,7 +65,15 @@ class UserPage extends Component {
                             </Col>
                         ))}
                     </Row>
-                </div>
+                    <Modal size="lg" isOpen={large} toggle={() => this.toggle('large')}>
+                        <ModalHeader toggle={() => this.toggle('large')}>Add User</ModalHeader>
+                        <ModalBody className="bg-white">
+                                    <UsersForm />
+                        </ModalBody>
+                        <ModalFooter>
+
+                        </ModalFooter>
+                    </Modal>
             </div>
         );
     }

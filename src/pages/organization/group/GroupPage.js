@@ -4,12 +4,12 @@ import Widget from '../../../components/Widget';
 import TextareaAutosize from 'react-autosize-textarea';
 import s from '../../forms/elements/Elements.module.scss';
 
-class PermissionPage extends Component {
+class GroupPage extends Component {
     state = {
         large: false,
         popovers: {},
         promoAlert: false,
-        Permissions: [],
+        Group: [],
     };
 
     componentDidMount() {
@@ -29,10 +29,10 @@ class PermissionPage extends Component {
     }
 
     render() {
-        const Permissions = [
+        const Group = [
             { name: 'Org 1', description: 'This is Permission 1' },
             { name: 'Org 2', description: 'This is Permission 2' },
-            // add more Permissions as needed
+            // add more Group as needed
         ];
 
         const { large } = this.state;
@@ -42,13 +42,13 @@ class PermissionPage extends Component {
                 <div>
                     <Row>
                         <Col md={3} xs={3}>
-                            <h2>Permission</h2>
+                            <h2>Group</h2>
                         </Col>
                     </Row>
                     <Row>
-                        {Permissions.map((org, index) => (
+                        {Group.map((org, index) => (
                             <Col md={3} xs={3} key={index}>
-                                <Widget className="widget-sm" to="/app/Permissions/procedure">
+                                <Widget className="widget-sm" to="/app/Group/procedure">
                                     <p>
                                         <strong>{org.description}</strong>
                                     </p>
@@ -63,4 +63,4 @@ class PermissionPage extends Component {
     }
 }
 
-export default PermissionPage;
+export default GroupPage;

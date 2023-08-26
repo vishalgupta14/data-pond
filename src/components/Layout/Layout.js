@@ -18,11 +18,11 @@ import ApplicationPage from "../../pages/application/ApplicationPage";
 import ProcedurePage from "../../pages/application/procedure/ProcedurePage";
 import Workspace from "../../pages/application/workspace/Workspace";
 import HadoopPage from "../../pages/configuration/hadoop/HadoopPage";
-import OrganizationPage from "../../pages/organization/OrganizationPage";
 import PermissionPage from "../../pages/organization/permission/PermissionPage";
 import TokenPage from "../../pages/organization/token/TokenPage";
 import RolePage from "../../pages/organization/role/RolePage";
 import UserPage from "../../pages/organization/user/UserPage";
+import GroupPage from "../../pages/organization/group/GroupPage";
 
 class Layout extends React.Component {
   static propTypes = {
@@ -106,10 +106,10 @@ class Layout extends React.Component {
                     <Route path="/app/application/procedure" exact component={ProcedurePage} />
                     <Route path="/app/application/procedure/workspace" exact component={Workspace} />
                     <Route path="/app/hadoop" exact component={HadoopPage} />
-                    <Route path="/app/organization" exact component={OrganizationPage} />
                     <Route path="/app/organization/user" exact component={UserPage} />
                     <Route path="/app/organization/role" exact component={RolePage} />
                     <Route path="/app/organization/permission" exact component={PermissionPage} />
+                    <Route path="/app/organization/group" exact component={GroupPage} />
                     <Route path="/app/organization/token" exact component={TokenPage} />
                   </Switch>
                 </CSSTransition>

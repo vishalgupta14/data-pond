@@ -102,12 +102,10 @@ class Sidebar extends React.Component {
                 activeItem={this.props.activeItem}
                 header="Platform"
                 isHeader
-                labelColor="danger"
+                iconName="flaticon-user"
                 iconElement={<Stack />}
-                conName="flaticon-user"
-                link="/platform"
+                link="/app/main/platform"
                 index="platform"
-                exact={false}
                 childrenLinks={[
                     {
                         header: 'Application', link: '/app/application',
@@ -117,14 +115,12 @@ class Sidebar extends React.Component {
           <LinksGroup
               onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
               activeItem={this.props.activeItem}
-              header="Configuration"
+              header="Admin"
               isHeader
-              labelColor="danger"
-              iconElement={<ShoppingCart />}
-              iconName="flaticon-diamond"
-              link="/configuration"
+              iconElement={<Fire />}
+              iconName="flaticon-network"
+              link="/app/configuration"
               index="configuration"
-              exact={false}
               childrenLinks={[
                 {
                   header: 'Hadoop', link: '/app/hadoop',
@@ -136,16 +132,16 @@ class Sidebar extends React.Component {
               activeItem={this.props.activeItem}
               header="Admin"
               isHeader
-              iconElement={<ShoppingCart />}
+              iconElement={<User />}
               iconName="flaticon-network"
               link="/app/organization"
               index="organization"
               childrenLinks={[
                 {
-                  header: 'Organization', link: '/app/organization',
+                  header: 'User', link: '/app/organization/user',
                 },
                 {
-                  header: 'User', link: '/app/organization/user',
+                  header: 'Group', link: '/app/organization/group',
                 },
                 {
                   header: 'Role', link: '/app/organization/role',
